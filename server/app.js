@@ -10,11 +10,11 @@ var config = {
     user: 'sa',
     password: 'Optum123$',
     server: 'localhost', 
-    database: 'ICSCOREDB',
+    database: 'TESTDB',
     trustServerCertificate: true
 };
 //Connect to db
-//sql.connect('Server=localhost,1433;Database=ICSCOREDB;User Id=sa;Password=Optum123$;Encrypt=true');
+//sql.connect('Server=localhost,1433;Database=TESTDB;User Id=sa;Password=Optum123$;Encrypt=true');
 
 sql.connect(config).then(pool => {
     if (pool.connecting) {
