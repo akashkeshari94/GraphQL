@@ -2,9 +2,11 @@ const express=require('express');
 //const graphqlHTTP = require('express-graphql');
 const { graphqlHTTP } = require('express-graphql');
 const schema=require('./schema/schema');
-const sql = require('mssql');
+//const sql = require('mssql');
+const mongoose = require('mongoose');
 
 const app=express();
+/*
 // config for your database
 var config = {
     user: 'sa',
@@ -14,8 +16,8 @@ var config = {
     trustServerCertificate: true
 };
 //Connect to db
-//sql.connect('Server=localhost,1433;Database=TESTDB;User Id=sa;Password=Optum123$;Encrypt=true');
 
+//sql.connect('Server=localhost,1433;Database=TESTDB;User Id=sa;Password=Optum123$;Encrypt=true');
 sql.connect(config).then(pool => {
     if (pool.connecting) {
       console.log('Connecting to the database...')
@@ -24,7 +26,12 @@ sql.connect(config).then(pool => {
       console.log('Connected to SQL Server')
     }
   })
+*/
 
+mongoose.connect('mongodb://sa:Optum123%24@localhost:1434/?authMechanism=DEFAULT');
+mongoose.connection.once('open', () =>{
+    console.log('connected to database');
+})
 
 app.use('/graphql',graphqlHTTP({
     schema,
