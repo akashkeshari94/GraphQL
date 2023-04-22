@@ -4,8 +4,13 @@ const { graphqlHTTP } = require('express-graphql');
 const schema=require('./schema/schema');
 //const sql = require('mssql');
 const mongoose = require('mongoose');
+const cors= require('cors');
 
 const app=express();
+
+//allow cross-origin request
+app.use(cors());
+
 /*
 // config for your database
 var config = {
